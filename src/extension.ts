@@ -1631,22 +1631,44 @@ class FilterInlinePreviewDecorator {
                     if (blockData) {
                         // Generate compact preview text
                         const previewText = this.generatePreviewText(blockData);
+                        const renderOptions: vscode.DecorationRenderOptions = {};
                         
-                        const decoration: vscode.DecorationOptions = {
-                            range: new vscode.Range(i, line.text.length, i, line.text.length),
-                            renderOptions: {
-                                after: {
-                                    contentText: previewText,
-                                    color: this.rgbaToHex(blockData.textColor),
-                                    backgroundColor: blockData.backgroundColor ? this.rgbaToHex(blockData.backgroundColor) : '#000000dd',
-                                    border: blockData.borderColor ? `1px solid ${this.rgbaToHex(blockData.borderColor)}` : 'none',
-                                    margin: '0 0 0 20px',
-                                    fontWeight: 'bold',
-                                    textDecoration: `none; padding: 2px 8px; border-radius: 3px; font-size: ${Math.min(blockData.fontSize, 16)}px;`
-                                }
+                        if (blockData.iconShape && blockData.iconColor) {
+                            const iconEmoji = this.getIconEmoji(blockData.iconShape);
+                            renderOptions.before =  {
+                                contentText: iconEmoji,
+                                color: this.getColorStyle(blockData.iconColor),
+                                backgroundColor: blockData.backgroundColor ? this.rgbaToHex(blockData.backgroundColor) : '#000000dd',
+                                border: blockData.borderColor ? `1px solid ${this.rgbaToHex(blockData.borderColor)}` : 'none',
+                                margin: '0 0 0 20px',
+                                fontWeight: 'bold',
+                                textDecoration: `none; border-right: none; padding: 2px 6px 2px 8px; border-top-left-radius: 3px; border-bottom-left-radius: 3px; font-size: ${blockData.fontSize}; font-variant-emoji: text;`
                             }
-                        };
-                        decorations.push(decoration);
+                            renderOptions.after =  {
+                                contentText: previewText,
+                                color: this.rgbaToHex(blockData.textColor),
+                                backgroundColor: blockData.backgroundColor ? this.rgbaToHex(blockData.backgroundColor) : '#000000dd',
+                                border: blockData.borderColor ? `1px solid ${this.rgbaToHex(blockData.borderColor)}` : 'none',
+                                margin: '0 0 0 0',
+                                fontWeight: 'bold',
+                                textDecoration: `none; border-left: none; padding: 2px 8px 2px ${blockData.iconShape ? '2px' : '8px'}; border-top-right-radius: 3px; border-bottom-right-radius: 3px; font-size: ${blockData.fontSize};`
+                            }
+                        }
+                        else {
+                            renderOptions.after = {
+                                contentText: previewText,
+                                color: this.rgbaToHex(blockData.textColor),
+                                backgroundColor: blockData.backgroundColor ? this.rgbaToHex(blockData.backgroundColor) : '#000000dd',
+                                border: blockData.borderColor ? `1px solid ${this.rgbaToHex(blockData.borderColor)}` : 'none',
+                                margin: '0 0 0 20px',
+                                fontWeight: 'bold',
+                                textDecoration: `none; padding: 2px 8px; border-radius: 3px; font-size: ${blockData.fontSize};`
+                            }
+                        }
+                        decorations.push({
+                            range: new vscode.Range(i, line.text.length, i, line.text.length),
+                            renderOptions: renderOptions
+                        });
                     }
                 }
             }
@@ -1661,10 +1683,10 @@ class FilterInlinePreviewDecorator {
         let text = '';
         
         // Add icon
-        if (data.iconShape && data.iconColor) {
-            const iconEmoji = this.getIconEmoji(data.iconShape);
-            text += `${iconEmoji} `;
-        }
+        // if (data.iconShape && data.iconColor) {
+        //     const iconEmoji = this.getIconEmoji(data.iconShape);
+        //     text += `${iconEmoji} `;
+        // }
         
         // Add item name
         text += data.itemName;
@@ -1702,6 +1724,23 @@ class FilterInlinePreviewDecorator {
             'upsidedownhouse': '⌂' // House symbol
         };
         return emojiMap[shape.toLowerCase()] || '●';
+    }
+
+    private getColorStyle(color: string): string {
+        const colorMap: { [key: string]: string } = {
+            'red': '#FF0000',
+            'green': '#00FF00',
+            'blue': '#0000FF',
+            'brown': '#A52A2A',
+            'white': '#FFFFFF',
+            'yellow': '#FFFF00',
+            'cyan': '#00FFFF',
+            'grey': '#808080',
+            'orange': '#FFA500',
+            'pink': '#FFC0CB',
+            'purple': '#800080'
+        };
+        return colorMap[color.toLowerCase()] || '#FFFFFF';
     }
 
     dispose(): void {
