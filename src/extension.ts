@@ -1115,7 +1115,7 @@ class FilterPreviewHoverProvider implements vscode.HoverProvider {
         const data: FilterBlockData = {
             itemName: 'Mirror of Kalandra', // Default name
             fontSize: 32,
-            textColor: { r: 175, g: 96, b: 37, a: 255 }, // Default POE orange
+            textColor: { r: 222, g: 222, b: 222, a: 255 },
             borderColor: null,
             backgroundColor: { r: 0, g: 0, b: 0, a: 240 },
             iconShape: null,
@@ -1144,6 +1144,12 @@ class FilterPreviewHoverProvider implements vscode.HoverProvider {
             const baseTypeMatch = text.match(/BaseType\s*=?=?\s*"([^"]+)"/);
             if (baseTypeMatch) {
                 data.itemName = baseTypeMatch[1];
+            }
+
+            // If no BaseType Match, Use Class instead
+            const classMatch = text.match(/Class\s*=?=?\s*"([^"]+)"/);
+            if (classMatch && data.itemName == 'Mirror of Kalandra') {
+                data.itemName = classMatch[1];
             }
 
             // Parse SetFontSize
@@ -1681,12 +1687,6 @@ class FilterInlinePreviewDecorator {
 
     private generatePreviewText(data: FilterBlockData): string {
         let text = '';
-        
-        // Add icon
-        // if (data.iconShape && data.iconColor) {
-        //     const iconEmoji = this.getIconEmoji(data.iconShape);
-        //     text += `${iconEmoji} `;
-        // }
         
         // Add item name
         text += data.itemName;
