@@ -96,7 +96,7 @@ export function activate(context: vscode.ExtensionContext) {
             // Get volume setting (0-100) and reduce to 5%
             const config = vscode.workspace.getConfiguration('poefilter');
             const volumePercent = config.get<number>('soundVolume', 50);
-            const volume = (volumePercent / 100) * 0.05; // Convert to 0.0-1.0 range and multiply by 5%
+            const volume = (volumePercent / 100); // Convert to 0.0-1.0 range and multiply by 5%
             
             console.log(`Playing sound with volume: ${volumePercent}% setting -> ${volume} actual (${volume * 100}%)`);
             
@@ -1569,7 +1569,7 @@ class FilterSoundCodeLensProvider implements vscode.CodeLensProvider {
                             command: 'poefilter.playSound',
                             arguments: [soundId]
                         });
-                        codeLenses.push(codeLens);
+                        // codeLenses.push(codeLens);
                     }
                 }
             }
