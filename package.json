@@ -21,10 +21,6 @@
     "Linters"
   ],
   "main": "./out/extension.js",
-  "activationEvents": [
-    "onLanguage:poefilter",
-    "onView:poefilterOutline"
-  ],
   "contributes": {
     "languages": [
       {
@@ -138,7 +134,7 @@
   ],
   "devDependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
-    "@types/node": "^25.0.8",
+    "@types/node": "^25.9.5",
     "@types/vscode": "^1.95.0",
     "typescript": "^5.9.3",
     "vscode-languageclient": "^9.0.1",

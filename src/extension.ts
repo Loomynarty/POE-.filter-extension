@@ -1759,7 +1759,7 @@ function updateDiagnostics(document: vscode.TextDocument, collection: vscode.Dia
 
         // Check for unknown keywords (basic validation)
         const knownKeywords = [
-            'Show', 'Hide', 'Continue', 'Import',
+            'Show', 'Hide', 'Continue', 'Import', 'Minimal',
             'BaseType', 'Class', 'Rarity', 'ItemLevel', 'DropLevel',
             'Quality', 'Sockets', 'LinkedSockets', 'SocketGroup', 'Height', 'Width',
             'HasExplicitMod', 'StackSize', 'Identified', 'Corrupted', 'Mirrored',
@@ -1774,7 +1774,11 @@ function updateDiagnostics(document: vscode.TextDocument, collection: vscode.Dia
             'HasCruciblePassiveTree', 'HasEaterOfWorldsImplicit', 'HasImplicitMod',
             'HasSearingExarchImplicit', 'HasVaalUniqueMod', 'IsVaalUnique',
             'MemoryStrands', 'Replica', 'Scourged', 'ZanaMemory', 'ArchnemesisMod',
-            'AnyEnchantment', 'HasEnchantment', 'GemQualityType', 'AlternateQuality'
+            'AnyEnchantment', 'HasEnchantment', 'GemQualityType', 'AlternateQuality',
+            'AlwaysShow', 'CustomAlertSound', 'CustomAlertSoundOptional',
+            'DisableDropSound', 'DisableDropSoundIfAlertSound', 'EnableDropSound',
+            'EnableDropSoundIfAlertSound', 'Imbued', 'MirageMap', 'TransfiguredGem',
+            'Vestigial'
         ];
 
         const firstWord = text.split(/\s+/)[0];
