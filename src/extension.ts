@@ -1141,7 +1141,7 @@ class FilterPreviewHoverProvider implements vscode.HoverProvider {
             }
 
             // Parse BaseType
-            const baseTypeMatch = text.match(/BaseType\s*==?\s*"([^"]+)"/);
+            const baseTypeMatch = text.match(/BaseType\s*=?=?\s*"([^"]+)"/);
             if (baseTypeMatch) {
                 data.itemName = baseTypeMatch[1];
             }
