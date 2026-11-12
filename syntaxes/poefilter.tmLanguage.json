@@ -89,7 +89,7 @@
       "patterns": [
         {
           "name": "keyword.other.condition.poefilter",
-          "match": "\\b(BaseType|Class|Rarity|ItemLevel|DropLevel|Quality|Sockets|LinkedSockets|SocketGroup|Height|Width|HasExplicitMod|AnyEnchantment|HasEnchantment|StackSize|GemLevel|GemQualityType|AlternateQuality|Identified|Corrupted|Mirrored|ElderItem|ShaperItem|FracturedItem|SynthesisedItem|ShapedMap|ElderMap|BlightedMap|MapTier|AreaLevel|Transfigured|HasInfluence|BaseArmour|BaseEvasion|BaseEnergyShield|BaseWard|BaseDefencePercentile|CorruptedMods|EnchantmentPassiveNode|EnchantmentPassiveNum|Foulborn|HasCruciblePassiveTree|HasEaterOfWorldsImplicit|HasImplicitMod|HasSearingExarchImplicit|HasVaalUniqueMod|IsVaalUnique|MemoryStrands|Replica|Scourged|TwiceCorrupted|UberBlightedMap|UnidentifiedItemTier|WaystoneTier|ZanaMemory|ArchnemesisMod|Continue|Import)\\b"
+          "match": "\\b(BaseType|Class|Rarity|ItemLevel|DropLevel|Quality|Sockets|LinkedSockets|SocketGroup|Height|Width|HasExplicitMod|AnyEnchantment|HasEnchantment|StackSize|GemLevel|GemQualityType|AlternateQuality|Identified|Corrupted|Mirrored|ElderItem|ShaperItem|FracturedItem|SynthesisedItem|ShapedMap|ElderMap|BlightedMap|MapTier|AreaLevel|Transfigured|HasInfluence|BaseArmour|BaseEvasion|BaseEnergyShield|BaseWard|BaseDefencePercentile|CorruptedMods|EnchantmentPassiveNode|EnchantmentPassiveNum|Foulborn|HasCruciblePassiveTree|HasEaterOfWorldsImplicit|HasImplicitMod|HasSearingExarchImplicit|HasVaalUniqueMod|IsVaalUnique|MemoryStrands|Replica|Scourged|TwiceCorrupted|UberBlightedMap|UnidentifiedItemTier|WaystoneTier|ZanaMemory|UnidentifiedItemTier|Fated|ArchnemesisMod|Continue|Import)\\b"
         },
         {
           "name": "keyword.operator.poefilter",
