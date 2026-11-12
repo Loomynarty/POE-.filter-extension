@@ -1817,7 +1817,7 @@ function updateDiagnostics(document: vscode.TextDocument, collection: vscode.Dia
             'AlwaysShow', 'CustomAlertSound', 'CustomAlertSoundOptional',
             'DisableDropSound', 'DisableDropSoundIfAlertSound', 'EnableDropSound',
             'EnableDropSoundIfAlertSound', 'Imbued', 'MirageMap', 'TransfiguredGem',
-            'Vestigial'
+            'Vestigial', 'UnidentifiedItemTier', 'Fated'
         ];
 
         const firstWord = text.split(/\s+/)[0];
