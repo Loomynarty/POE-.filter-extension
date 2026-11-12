@@ -2,8 +2,8 @@
   "name": "poe-filter-editor",
   "displayName": "POE Filter Editor",
   "description": "Advanced syntax highlighting, validation, and autocompletion for Path of Exile 1 & 2 item filters with configurable BaseType databases",
-  "version": "0.1.7",
-  "publisher": "save5bucks",
+  "version": "3.30.0",
+  "publisher": "loomynarty",
   "icon": "filter.png",
   "repository": {
     "type": "git",
